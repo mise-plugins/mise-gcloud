@@ -54,6 +54,3 @@ install_gcloud
 
 # post-install (install .default-cloud-sdk-components)
 bash "$(dirname "$0")/post-install"
-
-# reshim now sdk components are installed
-asdf reshim "$(get_plugin_name)" "$ASDF_INSTALL_VERSION"
