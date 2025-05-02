@@ -13,7 +13,7 @@ gcs_object_prefix="google-cloud-sdk"
 gcs_object_fields="kind,nextPageToken,items(name)"
 
 function fetch() {
-	curl --silent GET "https://storage.googleapis.com/storage/v1/b/${gcs_bucket_name}/o?pageToken=${1}&prefix=${gcs_object_prefix}&fields=${gcs_object_fields}"
+	curl --silent "https://storage.googleapis.com/storage/v1/b/${gcs_bucket_name}/o?pageToken=${1}&prefix=${gcs_object_prefix}&fields=${gcs_object_fields}"
 }
 
 function list_all() {
