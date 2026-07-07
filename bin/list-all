@@ -10,10 +10,11 @@ source "${plugin_dir}/lib/utils.bash"
 
 gcs_bucket_name="cloud-sdk-release"
 gcs_object_prefix="google-cloud-sdk"
+gcs_object_match_glob="google-cloud-sdk-*-linux-x86_64.tar.gz"
 gcs_object_fields="kind,nextPageToken,items(name)"
 
 function fetch() {
-	curl --silent "https://storage.googleapis.com/storage/v1/b/${gcs_bucket_name}/o?pageToken=${1}&prefix=${gcs_object_prefix}&fields=${gcs_object_fields}"
+	curl --silent "https://storage.googleapis.com/storage/v1/b/${gcs_bucket_name}/o?pageToken=${1}&prefix=${gcs_object_prefix}&matchGlob=${gcs_object_match_glob}&fields=${gcs_object_fields}"
 }
 
 function list_all() {
